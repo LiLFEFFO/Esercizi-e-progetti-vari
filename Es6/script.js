@@ -3,5 +3,9 @@ let azioni = [" salta su ", " mangia ", " evoca ", " igenizza "]
 let oggetti = [" la pizza ", " il professor Costa ", " un merluzzo che si chiama Antonno ", " Ayano "]
 
 function oggetto(){
-    let soggetto = Math.floor(Math.random)
+    let soggetto = Math.floor(Math.random() * soggetti.length);
+    let azione = Math.floor(Math.random() * azioni.length);
+    let oggetto = Math.floor(Math.random() * oggetti.length);
+    let frase = document.getElementById("frase");
+    frase.innerHTML = soggetti[soggetto] + azioni[azione] + oggetti[oggetto];
 }
