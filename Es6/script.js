@@ -1,6 +1,6 @@
-let soggetti = ["mio zio ", " il professor Maniglio ", " Alvise ", " Il Gel Igenizzante "];
-let azioni = [" salta su ", " mangia ", " evoca ", " igenizza "]
-let oggetti = [" la pizza ", " il professor Costa ", " un merluzzo che si chiama Antonno ", " Ayano "]
+let soggetti = ["mio zio ", " il professor Maniglio ", " Alvise ", " Il Gel Igenizzante ", " Sinico ", " Oscar Piastri ", " Panait ", " un merluzzo che si chiama Maurizio "];
+let azioni = [" salta su ", " mangia ", " evoca ", " igenizza ", " copia da ", " suona ", " uccide ", " annusa "]
+let oggetti = [" la pizza ", " il professor Costa ", " un merluzzo che si chiama Antonno ", " Ayano ", " Max Verstappen ", " Benincà ", " un orso gay ", " la shuko per la corrente "]
 
 function oggetto(){
     let soggetto = Math.floor(Math.random() * soggetti.length);
