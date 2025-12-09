@@ -8,10 +8,11 @@
 <body>
     <h1>Calcolatore Codice Fiscale</h1>
     <form id="codiceFiscaleForm">
-        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="text" id="nome" placeholder="Nome"  required>
         <input type="text" id="cognome" placeholder="Cognome" required>
         <input type="date" id="dataNascita" placeholder="Data di Nascita" required>
-        <input type="text" id="comuneNascita" placeholder="Comune di Nascita" required>
+        <input type="text" id="sesso" placeholder="Sesso M/F" required>
+        <input type="text" id="codiceComune" placeholder="Inserisci il codice catastale del tuo comune di nascita" required>
         <button type="button" onclick="calcolaCodiceFiscale()">Calcola</button>
     </form>
     <h2>Codice Fiscale: <span id="codiceFiscale"></span></h2>
