@@ -3,17 +3,34 @@ function calcolaCodiceFiscale() {
     const cognome = document.getElementById('cognome').value.toUpperCase();
     const dataNascita = new Date(document.getElementById('dataNascita').value);
     const comuneCodice = document.getElementById('codiceComune').value.toUpperCase();
+    const sesso = document.getElementById('sesso').value.toUpperCase();
 
     const lettereNome = estraiLettere(nome, true);
     const lettereCognome = estraiLettere(cognome, false);
-    const dataCodice = calcolaDataCodice(dataNascita);
+    const dataCodice = calcolaDataCodice(dataNascita, sesso);
     const calcolaComune = calcolaComuneCodice(comuneCodice);
-    const caratterediControllo = calcolaCarattereControllo();
+    const codiceFiscaleBase = lettereCognome + lettereNome + dataCodice + comuneCodice;
+    const caratterediControllo = calcolaCarattereControllo(codiceFiscaleBase);
 
-    const codiceFiscale = lettereCognome + lettereNome + dataCodice + comuneCodice;
+    const codiceFiscale = codiceFiscaleBase + caratterediControllo;
 
     document.getElementById('codiceFiscale').textContent = codiceFiscale;
 }
+
+function calcolaDataCodice(data, sesso) {
+    const anno = data.getFullYear().toString().slice(-2);
+    const mese = 'ABCDEHLMPRST'[data.getMonth()];
+    let giorno = data.getDate();
+
+    if (sesso === 'F') {
+        giorno += 40;
+    }
+
+    giorno = giorno < 10 ? '0' + giorno : giorno;
+
+    return anno + mese + giorno;
+}
+
 
 function estraiLettere(parola, isNome) {
     const consonanti = parola.replace(/[AEIOU]/gi, '');
@@ -25,16 +42,6 @@ function estraiLettere(parola, isNome) {
     }
 
     return (risultato + 'XXX').substring(0, 3);
-}
-
-function calcolaDataCodice(data) {
-    const anno = data.getFullYear().toString().slice(-2);
-    const mese = 'ABCDEHLMPRST'[data.getMonth()];
-    let giorno = data.getDate();
-
-    giorno = giorno < 10 ? '0' + giorno : giorno;
-
-    return anno + mese + giorno;
 }
 
 function calcolaComuneCodice(comune) {
