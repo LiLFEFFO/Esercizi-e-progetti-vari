@@ -1,0 +1,42 @@
+prima di tutto le variabili private:
+
+private <tipo> _<nome>          //occhio all'uderscore!!! Qui ci va!
+...
+
+
+poi le assegnazioni (get, set)
+
+public <tipo variabile> <nome>                   //SENZA UNDERSCORE!!
+{
+    get => _<nome>;
+    set => _<nome> = value;
+}
+...
+
+
+poi il costruttore
+public <nome della classe> (<qui dentro vanno dichiarate tutte le variabili SENZA l'underscore>)
+{
+    _<nome> = nome;             //Per OGNI variabile dichiarata
+}
+...
+
+
+successivamente i metodi
+
+public <tipo di ritorno> <nome del metodo> (<eventuali parametri>)
+{
+    <funzioni del metodo>
+}
+...
+
+
+poi eventualmente gli operatori
+
+    Occhio! Il tipo di ritorno può essere anche un oggetto della classe, in quel caso va messo il nome della classe!!
+                ↑
+public static <tipo di ritorno> operator <simbolo>(<nome della classe>.oggetto1, <nome della classe>, oggetto2)
+{
+    <funzioni dell'operator>
+}
+...
