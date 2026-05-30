@@ -1,6 +1,8 @@
 prima di tutto le variabili private:
 
-private <tipo> _<nome>          //occhio all'uderscore!!! Qui ci va!
+private <tipo> _<nome>
+private <tipo>[] _<nome> = new <tipo>[<dimensione>]                       //array
+l'uderscore!!! Qui ci va!
 ...
 
 
@@ -11,6 +13,8 @@ public <tipo variabile> <nome>                   //SENZA UNDERSCORE!!
     get => _<nome>;
     set => _<nome> = value;
 }
+
+per gli array stessa cosa solo che si mette [] dopo il tipo della variabile array
 ...
 
 
@@ -19,6 +23,8 @@ public <nome della classe> (<qui dentro vanno dichiarate tutte le variabili SENZ
 {
     _<nome> = nome;             //Per OGNI variabile dichiarata
 }
+
+// per gli array già assegnati, il costruttore non serve!!
 ...
 
 
