@@ -77,6 +77,11 @@ class CMoto
     {
         return $"Targa: {_Targa}, Marca: {_Marca}, Prezzo Base: {_PrezzoBase}, Chilometraggio: {_Chilometraggio}, Cilindrata: {_Cilindrata}, Serbatoio: {_Serbatoio}";
     }
+
+    public void AggiornaChilometraggio(float kmPercorsi)
+    {
+        _Chilometraggio = kmPercorsi;
+    }
 }
 
 class COfficina()
@@ -176,10 +181,12 @@ class COfficina()
         return stringa;
     }
 
-    public void AggiornaChilometraggio(float kmPercorsi, CMoto moto)
+    public override string ToString()
     {
-        moto.Chilometraggio += kmPercorsi;
+        string stringa = $"Nome: {_Nome}, Indirizzo: {_Indirizzo}, ";
+        for(int i = 0; i < _Elenco.Length; i++)
+        {
+            stringa += Console.WriteLine(_Elenco[i].ToString());
+        }
     }
-
-    
 }
