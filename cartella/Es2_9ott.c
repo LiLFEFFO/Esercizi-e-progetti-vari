@@ -17,11 +17,7 @@ int main() {
     pid = fork();
 
     if (pid == 0) {
-        close(pipe1[1]);
-        close(pipe2[0]);
-
         read(pipe1[0], testo, sizeof(testo));
-        close(pipe1[0]);
 
         for (int i = 0; testo[i] != '\0'; i++) {
             testo[i] = toupper((unsigned char)testo[i]);
@@ -33,24 +29,16 @@ int main() {
 
         write(pipe2[1], testo, sizeof(testo));
         write(pipe2[1], &vocali, sizeof(vocali));
-
-        close(pipe2[1]);
         exit(0);
     } else {
-        close(pipe1[0]);
-        close(pipe2[1]);
-
         printf("Inserisci una stringa: ");
         fgets(testo, sizeof(testo), stdin);
         testo[strcspn(testo, "\n")] = '\0';
 
         write(pipe1[1], testo, sizeof(testo));
-        close(pipe1[1]);
 
         read(pipe2[0], testo, sizeof(testo));
         read(pipe2[0], &vocali, sizeof(vocali));
-
-        close(pipe2[0]);
 
         wait(NULL);
 
